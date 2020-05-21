@@ -1,24 +1,17 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Recipe from './Recipe';
-import PropTypes from 'prop-types';
-import './RecipeList.css';
+import './RecipeList.css';  
 
-
-class RecipeList extends Component {
-  static propTypes = {
-    recipes: PropTypes.arrayOf(PropTypes.object).isRequired
-  }
-
-  render(){
-    const recipes=this.props.recipes.map((r,index) => (
-      <Recipe key={index} {...r} />
-    ));
-
+const RecipeList = ({recipes}) => {
     return (
       <div className="recipe-list">
-        {recipes}
+        {recipes.map((r,index) => {
+          return <Recipe 
+          key={r.id} r={r}
+          />
+      })}
       </div>
     )
-  }
+ 
 }
 export default RecipeList;

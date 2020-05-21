@@ -1,29 +1,28 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './Recipe.css';
 
-class Recipe extends Component{
-	render(){
-		const {title, photu, instructions}=this.props;
-		const ingredients=this.props.ingredients.map((ing,index) => (
-			<li key={index}>{ing}</li>
-		));
+
+const Recipe = ({r}) => {
+	const {title, img, instructions,ingredients} = r
 		return (
 			<div className="recipe-card">
-					<div className="recipe-card-image">
-						<img src={photu} alt={title}/>
-					</div>
-					<div className="recipe-card-content">
-						<h2 className="recipe-title">{title}</h2>
-						<h4>The ingredients are:</h4>
-						<ul>
-							{ingredients}
-						</ul>
-						<h4>The Process is:</h4>
-						<p>{instructions}</p>
-					</div>
+				<div className="recipe-card-image">
+					<img src={img} alt={title}/>
+				</div>
+				<div className="recipe-card-content">
+					<h2 className="recipe-title">{title}</h2>
+					<h4>The ingredients are:</h4>
+					<ul>
+						{ingredients.map((r,i)=>
+						<li>{r}</li>
+						)}
+					</ul>
+					<h4>The Process is:</h4>
+					<p>{instructions}</p>
+					<button type="button">DELETE</button>
+				</div>
 			</div>
 		);
-	}
 }
 
 export default Recipe;
