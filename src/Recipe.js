@@ -14,7 +14,7 @@ const Recipe = ({r}) => {
 					<h4>The ingredients are:</h4>
 					<ul>
 						{ingredients.map((r,i)=>
-						<li>{r}</li>
+						<li>{r}</li> 
 						)}
 					</ul>
 					<h4>The Process is:</h4>
